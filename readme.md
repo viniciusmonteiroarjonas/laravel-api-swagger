@@ -7,4 +7,7 @@ Gerando documentação de uma API Rest Full utilizando Swagger com o Laravel.
 
 ## Modelo I
 
-<img src="modelo1.png">
+<img src="modelo1.PNG">
+
+
+    
