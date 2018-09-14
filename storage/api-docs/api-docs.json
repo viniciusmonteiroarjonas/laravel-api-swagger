@@ -1,0 +1,172 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Documenta\u00e7\u00e3o API - Modelo I",
+        "description": "Foi gerada uma documenta\u00e7\u00e3o interativa OpenAPI para uma API RestFull desenvolvida utilizando o framework Laravel, usando algumas anota\u00e7\u00f5es de doctrine encima dos metodos b\u00e1sicos de um crud, e para gerar a documenta\u00e7\u00e3o foi utilizano a biblioteca zircote/swagger-php.",
+        "contact": {
+            "name": "viniciusmonteiroarjonas@outlook.com"
+        },
+        "license": {
+            "name": "Autor: Vinicius Monteiro Arjonas"
+        },
+        "version": "2.0"
+    },
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/usuarios": {
+            "get": {
+                "tags": [
+                    "Gerenciamento usu\u00e1rios"
+                ],
+                "summary": "Lista de usu\u00e1rios",
+                "description": "Retorna uma lista de usu\u00e1rios cadastrados na aplica\u00e7\u00e3o.",
+                "operationId": "getListar",
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o realizada com sucesso."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o n\u00e3o encontrada."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Gerenciamento usu\u00e1rios"
+                ],
+                "summary": "Novo usu\u00e1rio",
+                "description": "Criar um novo usu\u00e1rio",
+                "operationId": "postCriar",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string",
+                                    "format": "email"
+                                },
+                                "password": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Usu\u00e1rio criado com sucesso."
+                    },
+                    "400": {
+                        "description": "Erro ao persistir dados."
+                    }
+                }
+            }
+        },
+        "/usuarios/{id}": {
+            "get": {
+                "tags": [
+                    "Gerenciamento usu\u00e1rios"
+                ],
+                "summary": "Visualizar usu\u00e1rio",
+                "description": "Listar apenas um usu\u00e1rio, passando o ID do mesmo como parametro na URL.",
+                "operationId": "getVisualizar",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usu\u00e1rio encontrado."
+                    },
+                    "400": {
+                        "description": "Registro n\u00e3o encontrado."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Gerenciamento usu\u00e1rios"
+                ],
+                "summary": "Atualizar usu\u00e1rio",
+                "description": "Atualizando usu\u00e1rios, informando alguns paramentros.",
+                "operationId": "putAtualizar",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string",
+                                    "format": "email"
+                                },
+                                "password": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Usu\u00e1rio atualizado com sucesso"
+                    },
+                    "400": {
+                        "description": "N\u00e3o foi poss\u00edvel atualizar o usu\u00e1rio."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Gerenciamento usu\u00e1rios"
+                ],
+                "summary": "Remover usu\u00e1rio",
+                "description": "Excluir usu\u00e1rio",
+                "operationId": "deleteRemover",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}
