@@ -69,11 +69,7 @@ class UsuarioController extends Controller
      */
     public function store(UsuarioRequest $request)
     {
-        if ($validator->fails()) {    
-            return response()->json($validator->messages(), 200);   
-        }else{
             return User::create($request->all());
-        }
     }
 
     /**
